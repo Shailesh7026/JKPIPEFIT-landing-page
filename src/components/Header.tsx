@@ -124,10 +124,28 @@ export default function Header() {
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   {item.children ? (
-                    <button className="flex items-center gap-1 px-4 py-2 text-[13px] font-medium text-gray-600 hover:text-[#1a1a2e] transition-colors tracking-wide">
-                      {item.label}
-                      <ChevronDown size={13} />
-                    </button>
+                    <>
+                      <button className="flex items-center gap-1 px-4 py-2 text-[13px] font-medium text-gray-600 hover:text-[#1a1a2e] transition-colors tracking-wide">
+                        {item.label}
+                        <ChevronDown size={13} />
+                      </button>
+
+                      <div
+                        className={`nav-dropdown absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 min-w-[260px] border border-gray-100/80 max-h-[70vh] overflow-y-auto transition-all duration-200 ${
+                          openDropdown === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+                        }`}
+                      >
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.label}
+                            to={child.href}
+                            className="block px-4 py-2.5 text-[13px] text-gray-500 hover:text-[#1a1a2e] hover:bg-gray-50/80 transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </>
                   ) : (
                     <Link
                       to={item.href}
@@ -139,24 +157,6 @@ export default function Header() {
                     >
                       {item.label}
                     </Link>
-                  )}
-
-                  {item.children && (
-                    <div
-                      className={`nav-dropdown absolute top-full left-0 bg-white shadow-xl rounded-lg py-2 min-w-[260px] border border-gray-100/80 max-h-[70vh] overflow-y-auto ${
-                        openDropdown === item.label ? 'opacity-100 visible translate-y-0' : ''
-                      }`}
-                    >
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          to={child.href}
-                          className="block px-4 py-2.5 text-[13px] text-gray-500 hover:text-[#1a1a2e] hover:bg-gray-50/80 transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
                   )}
                 </div>
               ))}
