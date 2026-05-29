@@ -34,7 +34,7 @@ export default function Products() {
             <h2 className="text-3xl md:text-[2.25rem] font-bold text-[#1a1a2e] mt-2">Industrial and Piping Products</h2>
             <div className="divider divider-center mt-4" />
             <p className="text-gray-500 max-w-xl mx-auto mt-4 text-[15px] leading-relaxed">
-              JK Pipefit LLP is a leading manufacturer of high-quality industrial and piping products in various materials.
+              JK Pipefit is a leading manufacturer of high-quality industrial and piping products in various materials.
             </p>
           </motion.div>
 

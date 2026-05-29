@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { CheckCircle, DollarSign, Award, Settings, Star, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
+import { CheckCircle, Award, Settings, ChevronLeft, ChevronRight, ArrowRight, IndianRupee } from 'lucide-react'
 
 const heroSlides = [
   {
@@ -16,14 +16,14 @@ const heroSlides = [
     subtitle: 'Manufacturer of',
     title: 'Copper and Copper Nickel 90/10 and 70/30',
     text: 'Premium Copper Nickel pipe fittings in 90/10 and 70/30 grades for marine and seawater applications.',
-    link: '/products/copper-nickel-pipe-fittings',
+    link: '/products',
   },
   {
     image: '/images/hero-gunmetal.jpg',
     subtitle: 'Manufacturer of',
     title: 'Gunmetal Flanges',
     text: 'Durable Gunmetal flanges manufactured to precision for valves, pumps, and piping systems.',
-    link: '/products/gunmetal-flanges',
+    link: '/products',
   },
 ]
 
@@ -31,10 +31,10 @@ const features = [
   {
     icon: CheckCircle,
     title: 'Client Oriented',
-    text: 'Immediate Response, Excellent Quality, Quick Delivery, and Customer Satisfaction define JK Pipefit LLP.',
+    text: 'Immediate Response, Excellent Quality, Quick Delivery, and Customer Satisfaction define JK Pipefit.',
   },
   {
-    icon: DollarSign,
+    icon: IndianRupee,
     title: 'Competitive Prices',
     text: 'We offer a commendable range of Flanges & Forged Fittings with competitive prices & quality.',
   },
@@ -68,38 +68,14 @@ const pipeFittingProducts = [
   { name: 'Gunmetal Flanges', image: '/images/gunmetal-flanges.jpg', link: '/products/gunmetal-flanges' },
 ]
 
-const testimonials = [
-  {
-    text: 'We have been dealing with JK Pipefit LLP for the past 4 years. The Stainless Steel Pipe Fittings supplied by them are of top-notch quality that deliver consistent performance every time.',
-    name: 'Deep Mehta',
-    role: 'Manager',
-  },
-  {
-    text: 'Ordered Stainless Steel Flange as per a specific drawing from JK Pipefit LLP and got it as per my specification, precise and great quality.',
-    name: 'Karan Sharma',
-    role: 'Director',
-  },
-  {
-    text: 'We have been doing business with JK Pipefit LLP for more than seven years and we found them as the best overseas supplier due to their price and quality of products.',
-    name: 'Sahil Shaikh',
-    role: 'Asst. Director',
-  },
-]
-
 const clients = [
-  { name: 'Colourtex', logo: '/images/client-colourtex.png' },
-  { name: 'Thirumalai Chemicals', logo: '/images/client-thirumalai.png' },
-  { name: 'ACG', logo: '/images/client-acg.png' },
-  { name: 'Torrent Power', logo: '/images/client-torrent.png' },
-  { name: 'Balmer Lawrie', logo: '/images/client-balmer.png' },
-  { name: 'Navin Fluorine', logo: '/images/client-navin.png' },
-  { name: 'Larsen & Toubro', logo: '/images/client-lt.png' },
-  { name: 'ONGC', logo: '/images/client-ongc.png' },
-  { name: 'Vedanta', logo: '/images/client-vedanta.png' },
-  { name: 'IOCL', logo: '/images/client-iocl.png' },
-  { name: 'BPCL', logo: '/images/client-bpcl.png' },
-  { name: 'HPCL', logo: '/images/client-hpcl.png' },
-  { name: 'ISRO', logo: '/images/client-isro.png' },
+  { name: 'Cochin Shipyard', logo: '/images/client-cochin-shipyard-logo.jpg' },
+  { name: 'HSL', logo: '/images/client-hsl-logo.jpg' },
+  { name: 'IOCL', logo: '/images/client-iocl-logo.jpg' },
+  { name: 'INT', logo: '/images/client-l-n-t-logo.jpg' },
+  { name: 'MDL', logo: '/images/client-mdl-logo.jpg' },
+  { name: 'NPCIL', logo: '/images/client-npcil-logo.jpg' },
+  { name: 'ONGC', logo: '/images/client-ongc-logo.jpg' },
 ]
 
 const industries = [
@@ -113,7 +89,6 @@ const industries = [
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -392,56 +367,6 @@ export default function Home() {
                   <span className="text-3xl">{industry.icon}</span>
                   <h3 className="text-white font-medium text-sm">{industry.name}</h3>
                 </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="section-padding bg-white">
-        <div className="auto-container">
-          <div className="text-center mb-14">
-            <span className="sub-title">Testimonials</span>
-            <h2 className="text-3xl md:text-[2.25rem] font-bold text-[#1a1a2e] mt-2">What Our Clients Say</h2>
-            <div className="divider divider-center mt-4" />
-          </div>
-
-          <div className="max-w-2xl mx-auto">
-            <div className="relative min-h-[280px]">
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={index}
-                  className={`transition-all duration-500 ${
-                    index === currentTestimonial ? 'opacity-100 visible' : 'opacity-0 invisible absolute inset-0'
-                  }`}
-                >
-                  <div className="testimonial-card text-center">
-                    <p className="text-gray-600 text-base italic leading-[1.8] mb-6">
-                      &ldquo;{testimonial.text}&rdquo;
-                    </p>
-                    <div className="flex justify-center gap-1 mb-3">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={16} className="star-rating fill-current" />
-                      ))}
-                    </div>
-                    <p className="font-semibold text-[#1a1a2e]">{testimonial.name}</p>
-                    <p className="text-sm text-gray-400">{testimonial.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex justify-center gap-2 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`h-1.5 rounded-full transition-all duration-400 ${
-                    index === currentTestimonial ? 'bg-[#1a1a2e] w-6' : 'bg-gray-300 w-1.5'
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
               ))}
             </div>
           </div>

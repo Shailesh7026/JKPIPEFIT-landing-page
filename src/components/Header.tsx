@@ -88,9 +88,9 @@ export default function Header() {
                 <Phone size={12} />
                 <span>+91 8422020534</span>
               </a>
-              <a href="mailto:info@jkpipefit.com" className="flex items-center gap-1.5 hover:text-[#c9a227] transition-colors">
+              <a href="mailto:jkpipefit@gmail.com" className="flex items-center gap-1.5 hover:text-[#c9a227] transition-colors">
                 <Mail size={12} />
-                <span>info@jkpipefit.com</span>
+                <span>jkpipefit@gmail.com</span>
               </a>
             </div>
           </div>
@@ -109,7 +109,7 @@ export default function Header() {
             <Link to="/" className="flex items-center gap-3">
               <img
                 src="/images/logo.png"
-                alt="JK Pipefit LLP"
+                alt="JK Pipefit"
                 className="h-11 w-auto object-contain"
               />
             </Link>
@@ -254,9 +254,9 @@ export default function Header() {
                     <Phone size={14} className="text-[#1a1a2e]" />
                     +91 8422020534
                   </a>
-                  <a href="mailto:info@jkpipefit.com" className="flex items-center gap-2 text-gray-600">
+                  <a href="mailto:jkpipefit@gmail.com" className="flex items-center gap-2 text-gray-600">
                     <Mail size={14} className="text-[#1a1a2e]" />
-                    info@jkpipefit.com
+                    jkpipefit@gmail.com
                   </a>
                 </div>
               </div>
