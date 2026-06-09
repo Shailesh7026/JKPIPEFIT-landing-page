@@ -122,7 +122,7 @@ export default function Products() {
             <p className="text-gray-400 mb-8 leading-relaxed">
               We specialize in custom manufacturing to meet your specific requirements. Contact us today for a quote.
             </p>
-            <Link to="/contact-us" className="theme-btn theme-btn-primary">
+            <Link to="/contact-us/#contact-form" className="theme-btn theme-btn-primary">
               Get a Quote
             </Link>
           </div>

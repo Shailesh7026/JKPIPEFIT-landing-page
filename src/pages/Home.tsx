@@ -9,21 +9,21 @@ const heroSlides = [
     subtitle: 'Manufacturer of',
     title: 'Stainless Steel / Carbon Steel',
     text: 'High-quality Stainless Steel and Carbon Steel Sheets, Plates, Pipes, and Fittings for industrial applications.',
-    link: '/products',
-  },
-  {
-    image: '/images/hero-copper-nickel.jpg',
-    subtitle: 'Manufacturer of',
-    title: 'Copper and Copper Nickel 90/10 and 70/30',
-    text: 'Premium Copper Nickel pipe fittings in 90/10 and 70/30 grades for marine and seawater applications.',
-    link: '/products',
+    link: '/products/sheets',
   },
   {
     image: '/images/hero-gunmetal.jpg',
     subtitle: 'Manufacturer of',
     title: 'Gunmetal Flanges',
     text: 'Durable Gunmetal flanges manufactured to precision for valves, pumps, and piping systems.',
-    link: '/products',
+    link: '/products/gunmetal-flanges',
+  },
+  {
+    image: '/images/hero-copper-nickel.jpg',
+    subtitle: 'Manufacturer of',
+    title: 'Copper and Copper Nickel 90/10 and 70/30',
+    text: 'Premium Copper Nickel pipe fittings in 90/10 and 70/30 grades for marine and seawater applications.',
+    link: '/products/copper-nickel-pipe-fittings',
   },
 ]
 
@@ -65,7 +65,7 @@ const pipeFittingProducts = [
   { name: 'Carbon Steel Pipe Fittings', image: '/images/carbon-steel-fittings.jpg', link: '/products/carbon-steel-pipe-fittings' },
   { name: 'Stainless Steel Pipe Fittings', image: '/images/stainless-steel-fittings.jpg', link: '/products/stainless-steel-pipe-fittings' },
   { name: 'Copper Nickel Pipe Fittings', image: '/images/copper-nickel-90-10.jpg', link: '/products/copper-nickel-pipe-fittings' },
-  { name: 'Gunmetal Flanges', image: '/images/gunmetal-flanges.jpg', link: '/products/gunmetal-flanges' },
+  { name: 'Gunmetal Flanges', image: '/images/hero-gunmetal.jpg', link: '/products/gunmetal-flanges' },
 ]
 
 const clients = [
@@ -76,6 +76,10 @@ const clients = [
   { name: 'MDL', logo: '/images/client-mdl-logo.jpg' },
   { name: 'NPCIL', logo: '/images/client-npcil-logo.jpg' },
   { name: 'ONGC', logo: '/images/client-ongc-logo.jpg' },
+  { name: 'BPCL', logo: '/images/client-BPCL-logo.webp' },
+  { name: 'HPCL', logo: '/images/client-HPCL-logo.webp' },
+  { name: 'ISRO', logo: '/images/client-isro-logo.webp' },
+
 ]
 
 const industries = [
@@ -106,9 +110,9 @@ export default function Home() {
       <section className="relative h-[520px] md:h-[620px] lg:h-[680px] overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div
-            key={index}
+            key={slide.link}
             className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+              index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}
           >
             <div
@@ -118,9 +122,9 @@ export default function Home() {
               <div className="relative h-full flex items-center">
                 <div className="auto-container">
                   <motion.div
-                    key={`slide-${index}-${currentSlide}`}
+                    key={`slide-${slide.link}`}
                     initial={{ opacity: 0, y: 24 }}
-                    animate={index === currentSlide ? { opacity: 1, y: 0 } : {}}
+                    animate={index === currentSlide ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
                     transition={{ duration: 0.7, delay: 0.15 }}
                     className="max-w-2xl"
                   >
@@ -130,7 +134,7 @@ export default function Home() {
                     </h1>
                     <p className="text-gray-300 text-base md:text-lg mb-8 max-w-lg leading-relaxed">{slide.text}</p>
                     <Link to={slide.link} className="theme-btn theme-btn-primary">
-                      Explore Products
+                      Explore Product
                     </Link>
                   </motion.div>
                 </div>
@@ -155,9 +159,9 @@ export default function Home() {
         </button>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-          {heroSlides.map((_, index) => (
+          {heroSlides.map((slide, index) => (
             <button
-              key={index}
+              key={slide.link}
               onClick={() => setCurrentSlide(index)}
               className={`h-1.5 rounded-full transition-all duration-500 ${
                 index === currentSlide ? 'bg-[#c9a227] w-8' : 'bg-white/30 w-1.5'
@@ -260,7 +264,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-[2.25rem] font-bold text-[#1a1a2e] mt-2">High Quality Products</h2>
               <div className="divider mt-4" />
             </div>
-            <Link to="/products" className="text-[#4a90a4] text-sm font-semibold flex items-center gap-1.5 hover:text-[#1a1a2e] transition-colors">
+            <Link to="/products" className="text-primary text-sm font-semibold flex items-center gap-1.5 hover:text-[#c9a227] transition-colors">
               View All Products <ArrowRight size={16} />
             </Link>
           </div>
@@ -274,7 +278,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <Link to={product.link} className="product-card block bg-white rounded-xl overflow-hidden border border-gray-100">
+                <Link to={product.link} className="product-card block bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                   <div className="overflow-hidden aspect-[4/5]">
                     <img
                       src={product.image}
@@ -283,7 +287,10 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-4 text-center border-t border-gray-50">
-                    <h3 className="font-semibold text-[#1a1a2e] text-sm">{product.name}</h3>
+                    <h3 className="font-semibold text-primary text-sm">{product.name}</h3>
+                    <span className="mt-3 inline-flex items-center justify-center gap-1 text-sm font-semibold text-primary hover:text-[#c9a227] transition-colors">
+                      View Details <ArrowRight size={14} />
+                    </span>
                   </div>
                 </Link>
               </motion.div>
@@ -313,7 +320,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Link to={product.link} className="product-card block bg-white rounded-xl overflow-hidden border border-gray-100">
+                <Link to={product.link} className="product-card block bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                   <div className="overflow-hidden aspect-[4/5]">
                     <img
                       src={product.image}
@@ -322,7 +329,10 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-4 text-center border-t border-gray-50">
-                    <h3 className="font-semibold text-[#1a1a2e] text-sm">{product.name}</h3>
+                    <h3 className="font-semibold text-primary text-sm">{product.name}</h3>
+                    <span className="mt-3 inline-flex items-center justify-center gap-1 text-sm font-semibold text-primary hover:text-[#c9a227] transition-colors">
+                      View Details <ArrowRight size={14} />
+                    </span>
                   </div>
                 </Link>
               </motion.div>

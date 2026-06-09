@@ -43,7 +43,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-sm">
-              ISO certified with 30+ years of excellence in pipe fittings, flanges, sheets, plates, and industrial metal products.
+              ISO certified with 10+ years of experience in pipe fittings, flanges, sheets, plates, and industrial metal products.
             </p>
             <div className="flex items-center gap-3">
               <a
