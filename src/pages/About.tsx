@@ -133,7 +133,7 @@ export default function About() {
                       </a>
                     </p>
                     <p className="text-gray-300">
-                      <strong className="text-white">Address:</strong> Shop No 2, Ground Flr, Plot No 546, Patra Chawl, Pathe Bapurao Marg, Mumbai - 400004.
+                      <strong className="text-white">Address:</strong> OFFICE NO. 27A, FLOOR-1ST, PLOT-160, MULJI MADHAVJI NIWAS, NEAR C P TANK BEST SUB STATION, CP TANK, GIRGAON, MUMBAI - 400004, MAHARASHTRA (INDIA).
                     </p>
                   </div>
                   <Link

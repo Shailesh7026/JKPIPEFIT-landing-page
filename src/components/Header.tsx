@@ -245,7 +245,7 @@ export default function Header() {
                   </div>
                 ))}
 
-                <div className="mt-4 pt-4 border-t border-gray-100 space-y-2 text-sm">
+                <div className="mt-4 pt-4 space-y-2 text-sm">
                   <a href="tel:+919664834661" className="flex items-center gap-2 text-gray-600">
                     <Phone size={14} className="text-[#1a1a2e]" />
                     +91 9664834661

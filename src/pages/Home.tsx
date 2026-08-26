@@ -4,6 +4,13 @@ import { motion } from 'framer-motion'
 import { CheckCircle, Award, Settings, ChevronLeft, ChevronRight, ArrowRight, IndianRupee } from 'lucide-react'
 
 const heroSlides = [
+  // {
+  //   image: '/images/hero-stainless-carbon.jpg',
+  //   subtitle: 'Manufacturer of',
+  //   title: 'Stainless Steel / Carbon Steel',
+  //   text: 'High-quality Stainless Steel and Carbon Steel Sheets, Plates, Pipes, and Fittings for industrial applications.',
+  //   link: '/products/sheets',
+  // },
   {
     image: '/images/hero-stainless-carbon.jpg',
     subtitle: 'Manufacturer of',
